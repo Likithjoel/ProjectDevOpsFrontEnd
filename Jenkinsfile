@@ -17,11 +17,10 @@ node {
 		}
 		stage('deploy') {
 			sshCommand remote: remote, command: "rm -rf devops_frontend/"
-      sshCommand remote: remote, command: "mkdir devops_frontend"
-			sshPut remote: remote, from: '/var/lib/jenkins/workspace/devops_frontend/dist', into: './devops_frontend'
+			sshPut remote: remote, from: '/var/lib/jenkins/workspace/devops_frontend', into: '.'
 		}
 		stage('run') {
-			sshCommand remote: remote, command: "cd devops_frontend/dist && ng serve"
+			sshCommand remote: remote, command: "cd devops_frontend && ng serve"
 		}
 	}
 }
