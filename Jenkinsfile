@@ -21,7 +21,7 @@ node {
 			sshPut remote: remote, from: '/var/lib/jenkins/workspace/devops_frontend/dist', into: './devops_frontend'
 		}
 		stage('run') {
-			sshCommand remote: remote, command: "ng start"
+			sshCommand remote: remote, command: "cd devops_frontend/dist && ng serve"
 		}
 	}
 }
