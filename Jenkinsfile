@@ -1,5 +1,5 @@
 def remote = [:]
-remote.name = "frontend-server"
+remote.name = "frontend"
 remote.host = "168.62.183.17"
 remote.allowAnyHosts = true
 node {
