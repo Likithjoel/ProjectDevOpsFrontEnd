@@ -1,6 +1,6 @@
 def remote = [:]
 remote.name = "frontend-server"
-remote.host = "40.117.56.218"
+remote.host = "168.62.183.17"
 remote.allowAnyHosts = true
 node {
 	withCredentials([usernamePassword(credentialsId: 'FRONTEND', passwordVariable: 'password', usernameVariable: 'userName')]) {
@@ -20,7 +20,7 @@ node {
 			sshPut remote: remote, from: '/var/lib/jenkins/workspace/devops_frontend', into: '.'
 		}
 		stage('run') {
-			sshCommand remote: remote, command: "cd devops_frontend && ng serve"
+			sshCommand remote: remote, command: "cd devops_frontend && pm2 start 'ng serve --host 0.0.0.0'"
 		}
 	}
 }
