@@ -7,6 +7,7 @@ node {
         	remote.user = userName
         	remote.password = password
 		stage('checkout') {
+      git url: ''
 			echo 'checked out the code'
 		}
 		stage('Installing node modules') {
