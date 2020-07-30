@@ -7,7 +7,7 @@ node {
         	remote.user = userName
         	remote.password = password
 		stage('checkout') {
-      git url: ''
+      git url: 'https://github.com/Likithjoel/ProjectDevOpsFrontEnd.git'
 			echo 'checked out the code'
 		}
 		stage('Installing node modules') {
